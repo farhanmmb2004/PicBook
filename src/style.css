@@ -1,7 +1,7 @@
 *{
     margin: 0px;
     padding: 0px;
-    border: node;
+    border: none;
 }
 .logo{
     margin-left: 5%;
@@ -15,10 +15,25 @@
         visibility: hidden;
     }
     .nav{
-        margin-left: 100px;
+        margin-left: 200px;
     }
     .search{
         margin-left: 15%;
+    }
+    main{
+        display: flex;
+    }
+    menu{
+        /* display: flex; */
+        position: sticky;
+        margin-right: 5px;
+        min-width: 200px;
+        height: 100vh;
+        border-right: 0.5px solid black;
+    }
+    menu .option{
+        border-bottom: 1px solid black;
+        height: 30px;
     }
     }
     header{
@@ -29,7 +44,7 @@
         /* justify-content: center; */
     }
     .search{
-        width: 50%;
+        width: 40%;
         display: flex;
         align-items: center;
         justify-content: center;
@@ -56,4 +71,7 @@
    }
    header,.nav span:hover{
     cursor: pointer;
+   }
+   .content{
+    overflow:scroll;
    }
