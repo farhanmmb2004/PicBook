@@ -72,6 +72,9 @@
    header,.nav span:hover{
     cursor: pointer;
    }
-   .content{
-    overflow:scroll;
+   #selected{
+    /* color: aliceblue;
+    background-color: black;
+    border-radius: 25px; */
+    border-bottom: 2px solid black;
    }
