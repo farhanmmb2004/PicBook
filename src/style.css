@@ -10,6 +10,32 @@
     display: flex;
     justify-content: space-around;
 }
+@media (max-width:500px){
+    .cardh{
+        display: flex;
+        align-items: center;
+       }
+       .cardd{
+        margin-top: 7px;
+       }
+       .cardh img{
+        margin-right: 15px;
+        margin-left: 2px;
+        height: auto;
+        width: 10%;
+        border-radius:25px;
+       }
+       .cardh img:hover{
+        cursor: pointer;
+       }
+       .post{
+        margin-top: 7px;
+        max-height: auto;
+        width: 100%;
+        background-size: contain;
+        overflow: hidden;
+       }
+}
 @media (min-width:500px){
     .menu{
         visibility: hidden;
@@ -35,6 +61,34 @@
         border-bottom: 1px solid black;
         height: 30px;
     }
+    .cardh{
+        display: flex;
+        align-items: center;
+       }
+       .cardd{
+        margin-top: 7px;
+       }
+       .cardh img{
+        margin-right: 15px;
+        margin-left: 2px;
+        height: auto;
+        width: 40px;
+        border-radius:25px;
+       }
+       .cardh img:hover{
+        cursor: pointer;
+       }
+       .post{
+        margin-top: 7px;
+        max-height: 40%;
+        width: 60%;
+        background-size: contain;
+        overflow: hidden;
+       }
+       .cardm{
+        display: flex;
+        justify-content: center;
+       }
     }
     header{
         margin-top: 15px;
@@ -77,4 +131,28 @@
     background-color: black;
     border-radius: 25px; */
     border-bottom: 2px solid black;
+   }
+   .content{
+    background-color: black;
+   }
+   .card{
+    margin-top: 7px;
+   }
+   .cardf .helper{
+    display: flex;
+    align-items: center;
+    /* justify-content: space-between; */
+   }
+   .comment{
+   margin-left: 20%;
+   }
+   .cardf{
+    margin-top: 6px;
+    padding-bottom: 10px;
+   }
+   .like,.comment{
+    font-size: 30px
+   }
+   .like:hover,.comment:hover{
+    cursor: pointer;
    }
