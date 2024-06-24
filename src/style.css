@@ -133,9 +133,10 @@
     border-bottom: 2px solid black;
    }
    .content{
-    background-color: black;
+    background-color: rgb(180, 178, 178);
    }
    .card{
+    background-color: white;
     margin-top: 7px;
    }
    .cardf .helper{

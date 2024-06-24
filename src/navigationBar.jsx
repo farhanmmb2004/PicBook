@@ -7,6 +7,7 @@ export default function Navigation() {
     const { option, setOption } = useContext(MediaContext);
 
   return (
+    <>
     <div className='nav'>
       <div id='options' onClick={() => setOption('home')}>
         <span 
@@ -44,5 +45,6 @@ export default function Navigation() {
         </span>
       </div>
     </div>
+    </>
   );
 }
