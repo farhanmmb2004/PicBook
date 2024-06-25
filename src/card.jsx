@@ -1,6 +1,23 @@
 import { useState } from "react";
 export default function Card({data}){
-    let[liked,setLiked]=useState(false);
+    let[liked,setLiked]=useState({
+        likes:data.likes,
+        isliked:false
+    });
+    let handlelike=()=>{
+    if(liked.isliked){
+    setLiked({
+        likes:data.likes,
+        isliked:false
+    });
+    }
+    else{
+        setLiked({
+            likes:data.likes+1,
+            isliked:true
+        });
+    }
+    }
     return (
          <div className="card">
             <div className="cardh">
@@ -13,10 +30,9 @@ export default function Card({data}){
             <div className="cardm"> <img className="post" src={data.largeImageURL} />  </div>
             <div className="cardf">
             <div className="helper">
-            <span onClick={()=>{setLiked(!liked)}} class="material-symbols-outlined like" style={liked?{backgroundColor:"blue"}:{backgroundColor:""}}>
-            thumb_up
-            </span>{data.likes}
-            <span class="material-symbols-outlined comment">
+            <i onClick={handlelike} className="fa-solid fa-thumbs-up like" style={liked.isliked?{color:"blue"}:{backgroundColor:""}}></i>
+            {liked.likes}
+            <span className="material-symbols-outlined comment">
             mode_comment 
             </span> <p>{data.comments}</p>
             </div>

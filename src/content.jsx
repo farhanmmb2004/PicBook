@@ -4,8 +4,7 @@ import './style.css';
 import Card from "./card";
 
 export default function Content() {
-    let { option, data,fetchAndSetImages } = useContext(MediaContext);
-    fetchAndSetImages();
+    let { option, data } = useContext(MediaContext);
     return (
         <div className="content">
             {option !== 'home' && (
