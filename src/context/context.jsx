@@ -6,6 +6,7 @@ export const MediaContext = createContext();
 export const MediaProvider = ({ children }) => {
   const [option, setOption] = useState("home");
   const [data, setData] = useState([]);
+  const[likes,setLikes]=useState([]);
 
   const fetchAndSetImages = async () => {
     try {
@@ -23,7 +24,7 @@ export const MediaProvider = ({ children }) => {
   }, [option]);
 
   return (
-    <MediaContext.Provider value={{ option, setOption, data, fetchAndSetImages }}>
+    <MediaContext.Provider value={{ option, setOption, data, fetchAndSetImages,likes,setLikes}}>
       {children}
     </MediaContext.Provider>
   );

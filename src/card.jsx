@@ -1,21 +1,26 @@
 import { useState } from "react";
+import { useContext } from "react";
+import { MediaContext } from "./context/context";
 export default function Card({data}){
     let[liked,setLiked]=useState({
         likes:data.likes,
         isliked:false
     });
+    let { likes, setLikes } = useContext(MediaContext);
     let handlelike=()=>{
     if(liked.isliked){
     setLiked({
         likes:data.likes,
         isliked:false
     });
+    setLikes(likes=>likes.filter(like=>like.id!==data.id));
     }
     else{
         setLiked({
             likes:data.likes+1,
             isliked:true
         });
+        setLikes([...likes,data]);
     }
     }
     return (

@@ -1,6 +1,4 @@
-// import './App.css'
 import Header from './header';
-import Navigation from './navigationBar';
 import Menu from './menu';
 import { MediaProvider} from './context/context';
 import { useState,useEffect } from 'react';
@@ -25,11 +23,11 @@ return (
     <MediaProvider>
     <div className="head">
     <Header />
-    <Navigation />
-    </div>
+    
+</div>
     <main>
     {
-     !isMobile&&(<Menu/>)
+      !isMobile&&<Menu/>
     }
     <Content/>
     </main>
