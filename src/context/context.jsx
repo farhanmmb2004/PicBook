@@ -16,12 +16,12 @@ export const MediaProvider = ({ children }) => {
       console.error("Error fetching images:", error);
     }
   };
-
+ 
   useEffect(() => {
     if (option === 'home') {
       fetchAndSetImages();
     }
-  }, [option]);
+  },0);
 
   return (
     <MediaContext.Provider value={{ option, setOption, data, fetchAndSetImages,likes,setLikes}}>
