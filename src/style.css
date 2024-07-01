@@ -37,6 +37,9 @@
         background-size: contain;
         overflow: hidden;
        }
+       .content{
+        padding-top:45px;
+       }
 }
 @media (min-width:500px){
     .menu{
@@ -52,16 +55,23 @@
         display: flex;
     }
     menu{
-        /* display: flex; */
-        position: sticky;
-        margin-right: 5px;
-        min-width: 200px;
-        height: 100vh;
-        border-right: 0.5px solid black;
-    }
+        border-right:1px solid black ;
+        position: -webkit-sticky; 
+  position: sticky;
+  top: 0;
+  min-width: 200px;
+  height: 100vh; 
+  background-color: white; 
+  overflow-y: auto;    
+  padding-top: 45px;
+}
     menu .option{
         border-bottom: 1px solid black;
         height: 30px;
+        cursor: pointer;
+    }
+    menu .option:hover{
+    opacity: 0.5;
     }
     .cardh{
         display: flex;
@@ -169,3 +179,28 @@
     position: fixed;
     z-index: 1000;
    } */
+    .head,.nav{
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        z-index: 100;
+        background-color: rgb(101, 129, 136);
+    }
+    .nav{
+        margin-top: -3px;
+        top:45px
+    }
+    .helperb{
+        display: flex;
+        justify-content: center;
+    }
+    .helperb button{
+        width: 200px;
+        height: 50px;
+        margin-top: 50px;
+        margin-bottom: 50px;
+        margin-left: -25px;
+        border-radius: 25px;
+        cursor: pointer;
+    }

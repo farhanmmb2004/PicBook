@@ -4,19 +4,26 @@ import './style.css';
 import Card from "./card";
 
 export default function Content({ option }) {
-  const { data, likes } = useContext(MediaContext);
+  const { data, likes,fetchAndSetImages } = useContext(MediaContext);
 
   const homeContent = useMemo(() => (
-    Array.isArray(data) ? data.map((img, index) => <Card key={index} data={img} />) : null
-  ), [data]);
+    Array.isArray(data) ? data.map((img, index) => <Card key={index} data={{...img,flag:false}}  />) : null
+  )
+  , [data]);
 
   const favoriteContent = useMemo(() => (
-    likes.map((img, index) => <Card key={index} data={img} />)
+    likes.map((img, index) => <Card key={index} data={{...img}} flag={true} />)
   ), [data]);
+  const handleButtonClick = () => {
+    console.log('Button clicked!');
+    fetchAndSetImages();
+  };
 
   return (
     <div className="content">
-      {option === 'home' && homeContent}
+      {option === 'home' && <>{homeContent}
+      <div className="helperb"><button onClick={handleButtonClick} className="content-button">load more</button></div>
+      </> }
       {option === 'favorite' && favoriteContent}
       {(option !== 'home' && option !== 'favorite') && (
         <h1>

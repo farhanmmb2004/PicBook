@@ -1,10 +1,10 @@
 import { useState } from "react";
 import { useContext } from "react";
 import { MediaContext } from "./context/context";
-export default function Card({data}){
+export default function Card({data,flag}){
     let[liked,setLiked]=useState({
         likes:data.likes,
-        isliked:false
+        isliked:flag
     });
     let { likes, setLikes } = useContext(MediaContext);
     let handlelike=()=>{

@@ -11,7 +11,9 @@ export const MediaProvider = ({ children }) => {
   const fetchAndSetImages = async () => {
     try {
       const result = await fetchImages();
-      setData(result.hits);
+      if(Array.isArray(result.hits)){
+        setData([...data,...result.hits]);
+      }
     } catch (error) {
       console.error("Error fetching images:", error);
     }
@@ -21,7 +23,7 @@ export const MediaProvider = ({ children }) => {
     if (option === 'home') {
       fetchAndSetImages();
     }
-  },0);
+  },[]);
 
   return (
     <MediaContext.Provider value={{ option, setOption, data, fetchAndSetImages,likes,setLikes}}>
