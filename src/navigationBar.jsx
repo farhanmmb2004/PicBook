@@ -4,11 +4,11 @@ import { MediaContext } from './context/context';
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-export default function Navigation() {
+export default function Navigation({c}) {
   const { option, setOption } = useContext(MediaContext);
 
   return (
-    <div className='nav'>
+    <div className={`nav ${c}`} >
       <div id='options' onClick={() => setOption('home')}>
         <Link to="/">
           <span

@@ -204,3 +204,27 @@
         border-radius: 25px;
         cursor: pointer;
     }
+    /* Add this to your CSS file */
+.head, .navigation {
+    position: fixed;
+    width: 100%;
+    z-index: 1000;
+    transition: top 0.3s;
+  }
+  
+  .head {
+    top: 0;
+  }
+  
+  .navigation {
+    top: 45px; /* Adjust according to the height of your header */
+  }
+  
+  .hidden-head {
+    top: -60px; /* Adjust according to the height of your header */
+  }
+  
+  .hidden-navigation {
+    top: -70px; /* Adjust according to the combined height of your header and navigation */
+  }
+  
