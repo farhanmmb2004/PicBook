@@ -46,7 +46,7 @@
         visibility: hidden;
     }
     .nav{
-        margin-left: 200px;
+        /* margin-left: 200px; */
     }
     .search{
         margin-left: 15%;
@@ -59,19 +59,30 @@
         position: -webkit-sticky; 
   position: sticky;
   top: 0;
+  padding-top: 30px;
   min-width: 200px;
   height: 100vh; 
   background-color: white; 
   overflow-y: auto;    
-  padding-top: 45px;
+}
+.logo{
+    margin-left: 50px;
+    cursor: pointer;
+}
+.cur{
+    border-top: 1px solid black;
+    background-color: #698474;
+
 }
     menu .option{
         border-bottom: 1px solid black;
         height: 30px;
         cursor: pointer;
+        padding-left: 50px;
     }
     menu .option:hover{
     opacity: 0.5;
+    background-color: #698474;
     }
     .cardh{
         display: flex;
@@ -147,6 +158,7 @@
     color: blue;
    }
    .content{
+    padding-top: 45px;
     background-color: rgb(180, 178, 178);
    }
    .card{
@@ -185,7 +197,7 @@
         left: 0;
         width: 100%;
         z-index: 100;
-        background-color: rgb(101, 129, 136);
+        background-color:rgb(218, 206, 142);
     }
     .nav{
         margin-top: -3px;
@@ -217,14 +229,14 @@
   }
   
   .navigation {
-    top: 45px; /* Adjust according to the height of your header */
+    top: 45px; 
   }
   
   .hidden-head {
-    top: -60px; /* Adjust according to the height of your header */
+    top: -60px;
   }
   
   .hidden-navigation {
-    top: -70px; /* Adjust according to the combined height of your header and navigation */
+    top: -70px; 
   }
   

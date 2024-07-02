@@ -7,13 +7,19 @@ export const MediaProvider = ({ children }) => {
   const [option, setOption] = useState("home");
   const [data, setData] = useState([]);
   const[likes,setLikes]=useState([]);
-
+  let[query,setQuery]=useState('');
   const fetchAndSetImages = async () => {
     try {
-      const result = await fetchImages();
-      if(Array.isArray(result.hits)){
-        setData([...data,...result.hits]);
-      }
+        if(query===''){
+          const result = await fetchImages();
+          if(Array.isArray(result.hits)){
+            setData([...data,...result.hits]);
+          }
+        }
+        else{
+          const result = await fetchImages(query);
+            setData(result.hits);
+        }
     } catch (error) {
       console.error("Error fetching images:", error);
     }
@@ -21,12 +27,12 @@ export const MediaProvider = ({ children }) => {
  
   useEffect(() => {
     if (option === 'home') {
-      fetchAndSetImages();
+      fetchAndSetImages(query);
     }
-  },[]);
+  },[query]);
 
   return (
-    <MediaContext.Provider value={{ option, setOption, data, fetchAndSetImages,likes,setLikes}}>
+    <MediaContext.Provider value={{ option, setOption, data, fetchAndSetImages,likes,setLikes,setQuery,query}}>
       {children}
     </MediaContext.Provider>
   );

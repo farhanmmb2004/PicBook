@@ -32,10 +32,10 @@ export default function Card({data,flag}){
             <div className="cardd">
             {data.tags}
             </div>
-            <div className="cardm"> <img className="post" src={data.largeImageURL} />  </div>
+            <div className="cardm"> <img className="post" src={data.largeImageURL} onDoubleClick={handlelike}/>  </div>
             <div className="cardf">
             <div className="helper">
-            <i onClick={handlelike} className="fa-solid fa-thumbs-up like" style={liked.isliked?{color:"blue"}:{backgroundColor:""}}></i>
+            <i onClick={handlelike} className="fa-solid fa-thumbs-up like" style={liked.isliked?{color:"blue"}:{backgroundColor:""}} ></i>
             {liked.likes}
             <span className="material-symbols-outlined comment">
             mode_comment 
