@@ -4,6 +4,7 @@ import { fetchImages } from '../service/api';
 export const MediaContext = createContext();
 
 export const MediaProvider = ({ children }) => {
+  const [hideNavigation, setHideNavigation] = useState(false);
   const [option, setOption] = useState("home");
   const [data, setData] = useState([]);
   const[likes,setLikes]=useState([]);
@@ -32,7 +33,7 @@ export const MediaProvider = ({ children }) => {
   },[query]);
 
   return (
-    <MediaContext.Provider value={{ option, setOption, data, fetchAndSetImages,likes,setLikes,setQuery,query}}>
+    <MediaContext.Provider value={{ option, setOption, data, fetchAndSetImages,likes,setLikes,setQuery,query,setHideNavigation}}>
       {children}
     </MediaContext.Provider>
   );

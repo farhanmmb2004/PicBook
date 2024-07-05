@@ -5,7 +5,6 @@ import Card from "./card";
 
 export default function Content({ option }) {
   const { data, likes,fetchAndSetImages } = useContext(MediaContext);
-
   const homeContent = useMemo(() => (
     Array.isArray(data) ? data.map((img, index) => <Card key={index} data={{...img,flag:false}}  />) : null
   )
