@@ -47,7 +47,7 @@
        .menu{
         z-index: 1000;
        }
-       .show{
+       .show1{
         position:fixed;
         left: 0px;
         transition: all 0.3s;
@@ -275,3 +275,35 @@
   .hidden-navigation {
     top: -70px; 
   }
+  /* vidio card styling */
+  .video-wrapper {
+    position: relative;
+    width: 100%;
+    max-width: 600px;
+    margin: auto;
+    cursor: pointer;
+}
+
+.styled-video {
+    width: 100%;
+    border: 5px solid #ccc;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.video-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0, 0, 0, 0.5);
+    color: #fff;
+    font-size: 2rem;
+    text-align: center;
+    border-radius: 10px;
+    pointer-events: none;
+}

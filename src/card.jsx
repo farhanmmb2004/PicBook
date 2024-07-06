@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useContext } from "react";
 import { MediaContext } from "./context/context";
+import Vidio from "./Vidio";
 export default function Card({data,flag}){
     let[liked,setLiked]=useState({
         likes:data.likes,
@@ -32,7 +33,7 @@ export default function Card({data,flag}){
             <div className="cardd">
             {data.tags}
             </div>
-            <div className="cardm"> <img className="post" src={data.largeImageURL} onDoubleClick={handlelike}/>  </div>
+            <div className="cardm" onDoubleClick={handlelike}>{data.type==='film'?<Vidio src={data.videos.medium.url}poster={data.videos.medium.thumbnail}/>:<img className="post" src={data.largeImageURL} />}</div>
             <div className="cardf">
             <div className="helper">
             <i onClick={handlelike} className="fa-solid fa-thumbs-up like" style={liked.isliked?{color:"blue"}:{backgroundColor:""}} ></i>

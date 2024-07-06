@@ -7,7 +7,6 @@ import Home from './pages/Home';
 import Videocam from './pages/Videocam';
 import Favorite from './pages/Favorite';
 import Account from './pages/Account';
-import Navigation from './navigationBar';
 
 function App() {
   const [isMobile, setIsMobile] = useState(window.innerWidth < 500);
@@ -47,9 +46,6 @@ function App() {
         <div className={`head ${hideHeader ? 'hidden-head' : ''}`}>
           <Header hideNavigation={hideNavigation} mobile={isMobile}/>
         </div>
-        {/* <div >
-          <Navigation c={`navigation ${hideNavigation ? 'hidden-navigation' : ''}`}/>
-        </div> */}
         <main>
           {!isMobile && <Menu />}
           <div className="temp_">

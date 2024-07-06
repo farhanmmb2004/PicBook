@@ -7,7 +7,7 @@ import Navigation from "./navigationBar";
 export default function Header({ hideNavigation,mobile }) {
     let [query1, setQuery1] = useState('');
     let [show, setShow] = useState(false);
-    let { query, setQuery } = useContext(MediaContext);
+    let {setQuery } = useContext(MediaContext);
     const menuRef = useRef(null);
 
     let handleMenu = () => {
@@ -45,7 +45,7 @@ export default function Header({ hideNavigation,mobile }) {
                 </span>
             </div>
             {(mobile) && (
-                <div ref={menuRef} className={show ? "show" : "hide1"}>
+                <div ref={menuRef} className={show ? "show1" : "hide1"}>
                     <Menu />
                 </div>
             )}

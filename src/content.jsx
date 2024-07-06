@@ -2,20 +2,29 @@ import React, { useContext, useMemo } from "react";
 import { MediaContext } from "./context/context";
 import './style.css';
 import Card from "./card";
+import Vidio from "./Vidio.jsx";
+import Videocam from "./pages/Videocam.jsx";
 
 export default function Content({ option }) {
-  const { data, likes,fetchAndSetImages } = useContext(MediaContext);
+  const { data, likes,fetchAndSetImages,vidios,fetchAndSetVidios } = useContext(MediaContext);
   const homeContent = useMemo(() => (
     Array.isArray(data) ? data.map((img, index) => <Card key={index} data={{...img,flag:false}}  />) : null
   )
   , [data]);
-
+  const vidioContent = useMemo(() => (
+    Array.isArray(vidios) ? vidios.map((img, index) => <Card key={index} data={{...img,flag:false}}  />) : null
+  )
+  , [vidios]);
   const favoriteContent = useMemo(() => (
     likes.map((img, index) => <Card key={index} data={{...img}} flag={true} />)
   ), [data]);
   const handleButtonClick = () => {
-    console.log('Button clicked!');
-    fetchAndSetImages();
+    if(option==='home'){
+      fetchAndSetImages();
+    }
+    else{
+      fetchAndSetVidios();
+    }
   };
 
   return (
@@ -24,10 +33,14 @@ export default function Content({ option }) {
       <div className="helperb"><button onClick={handleButtonClick} className="content-button">load more</button></div>
       </> }
       {option === 'favorite' && favoriteContent}
-      {(option !== 'home' && option !== 'favorite') && (
+      {option==='videocam'&&<>{vidioContent}
+      <div className="helperb"><button onClick={handleButtonClick} className="content-button">load more</button></div>
+      </>}
+      {(option === 'account_circle') && (
         <h1>
           You are in <h3 style={{ color: "red" }}>{option}</h3> section. Sorry! Content for it is not added yet.
         </h1>
+        
       )}
     </div>
   );
