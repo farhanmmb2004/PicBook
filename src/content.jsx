@@ -2,9 +2,6 @@ import React, { useContext, useMemo } from "react";
 import { MediaContext } from "./context/context";
 import './style.css';
 import Card from "./card";
-import Vidio from "./Vidio.jsx";
-import Videocam from "./pages/Videocam.jsx";
-
 export default function Content({ option }) {
   const { data, likes,fetchAndSetImages,vidios,fetchAndSetVidios } = useContext(MediaContext);
   const homeContent = useMemo(() => (

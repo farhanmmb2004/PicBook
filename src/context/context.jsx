@@ -8,6 +8,7 @@ export const MediaProvider = ({ children }) => {
   const [data, setData] = useState([]);
   const[likes,setLikes]=useState([]);
   let[query,setQuery]=useState('');
+  const [ohis,setohis]=useState([]);
   const fetchAndSetVidios = async () => {
     try {
         if(query===''){
@@ -49,7 +50,7 @@ export const MediaProvider = ({ children }) => {
   },[query]);
 
   return (
-    <MediaContext.Provider value={{ option, setOption, data, fetchAndSetImages,likes,setLikes,setQuery,query,vidios,fetchAndSetVidios}}>
+    <MediaContext.Provider value={{ option, setOption, data, fetchAndSetImages,likes,setLikes,setQuery,query,vidios,fetchAndSetVidios,ohis,setohis}}>
       {children}
     </MediaContext.Provider>
   );

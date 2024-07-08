@@ -1,6 +1,11 @@
+import { useContext } from 'react';
 import React from 'react';
 import Content from '../content';
-
-const Home = () => <Content option="home" />;
+import { MediaContext } from "../context/context";
+const Home = () => {
+    const {setOption}=useContext(MediaContext);
+    setOption("home");
+    return <Content option="home" />
+};
 
 export default Home;

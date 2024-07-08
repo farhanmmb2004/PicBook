@@ -1,6 +1,10 @@
+import { useContext } from 'react';
 import React from 'react';
 import Content from '../content';
-
-const Videocam = () => <Content option="videocam" />;
+import { MediaContext } from "../context/context";
+const Videocam = () => {
+    const {setOption}=useContext(MediaContext);
+    setOption("videocam");
+    return<Content option="videocam" />;}
 
 export default Videocam;
