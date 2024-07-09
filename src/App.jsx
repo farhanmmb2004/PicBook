@@ -1,14 +1,16 @@
-import React, { useState, useEffect} from 'react';
+import React, { useState, useEffect,useContext} from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import { MediaProvider } from './context/context';
 import Header from './header';
 import Menu from './menu';
 import Home from './pages/Home';
 import Videocam from './pages/Videocam';
 import Favorite from './pages/Favorite';
 import Account from './pages/Account';
+// import Settings from './pages/settings';
+import { MediaContext } from "./context/context";
 
 function App() {
+  const {option}=useContext(MediaContext);
   const [isMobile, setIsMobile] = useState(window.innerWidth < 500);
   const [lastScrollY, setLastScrollY] = useState(0);
   const [hideHeader, setHideHeader] = useState(false);
@@ -33,15 +35,21 @@ function App() {
 
     window.addEventListener('resize', handleResize);
     window.addEventListener('scroll', handleScroll);
-
+   
     return () => {
       window.removeEventListener('resize', handleResize);
       window.removeEventListener('scroll', handleScroll);
     };
   }, [lastScrollY]);
+  // if(option==='setting'){
+  //   return (
+  //     <Routes>
+  //       <Route path="/settings" element={<Settings />} />
+  //     </Routes>
+  //   );
+  //   }
 
   return (
-    <MediaProvider>
       <Router>
         <div className={`head ${hideHeader ? 'hidden-head' : ''}`}>
           <Header hideNavigation={hideNavigation} mobile={isMobile}/>
@@ -59,7 +67,6 @@ function App() {
           </div>
         </main>
       </Router>
-    </MediaProvider>
   );
 }
 

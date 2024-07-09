@@ -8,7 +8,7 @@ export default function Navigation({c}) {
   const { option, setOption } = useContext(MediaContext);
 
   return (
-    <div className={`nav ${c}`} >
+    <div className={`nav ${c}`} style={{position:'sticky',top:0}} >
       <div id='options' onClick={() => setOption('home')}>
         <Link to="/">
           <span
