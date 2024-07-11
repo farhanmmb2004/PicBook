@@ -7,7 +7,8 @@ export default function Card({data,flag}){
         likes:data.likes,
         isliked:flag
     });
-    let { likes, setLikes } = useContext(MediaContext);
+    let [follow,setfollow]=useState(false);
+    let { likes, setLikes,followings,setFollowings} = useContext(MediaContext);
     let handlelike=()=>{
     if(liked.isliked){
     setLiked({
@@ -24,11 +25,29 @@ export default function Card({data,flag}){
         setLikes([...likes,data]);
     }
     }
+let handlefollow = () => {
+    if (follow) {
+        setFollowings(followings.filter(f => f.id !== data.user_id));
+        setfollow(false);
+    } else {
+        const isFollowing = followings.some(f => f.id === data.user_id);
+        if (!isFollowing) {
+            setFollowings([...followings, {
+                id: data.user_id,
+                img: data.userImageURL,
+                name: data.user
+            }]);
+        }
+        setfollow(true);
+    }
+};
+
     return (
          <div className="card">
             <div className="cardh">
              <img src={data.userImageURL}/>
              <h4>{data.user}</h4>
+             <div className={follow?"following":"follow"} onClick={handlefollow}><p>{follow?"following":"follow"}{follow?<i class="fa-solid fa-check"></i>:<i class="fa-solid fa-user-plus"></i>}</p></div>
             </div>
             <div className="cardd">
             {data.tags}

@@ -7,6 +7,7 @@ try{
     let random=Math.floor(Math.random()*20);
     if(query===''){
         let response=await axios.get(`${base_URL}&page=${random}&per_page=10`);
+        console.log(response.data.hits);
         return response.data;
     }
     else{
@@ -23,6 +24,7 @@ export let fetchVidios=async(query='')=>{
         let random=Math.floor(Math.random()*20);
         if(query===''){
             let response=await axios.get(`${vidio_url}&page=${random}&per_page=5`);
+            console.log(response.data.hits);
             return response.data;
         }
         else{

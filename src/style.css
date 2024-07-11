@@ -307,3 +307,20 @@
     border-radius: 10px;
     pointer-events: none;
 }
+.follow{
+    display:flex;
+    margin-left:  5px; 
+    border: 1px solid black;
+    border-radius: 5px;
+    padding: 2px 2px;
+    cursor: pointer;
+}
+.following{
+    cursor: pointer;
+    display:flex;
+    margin-left:  5px; 
+    border: 1px solid black;
+    border-radius: 5px;
+    padding: 2px 2px;
+    color: blue;   
+}

@@ -3,7 +3,7 @@ import { MediaContext } from "./context/context";
 import './style.css';
 import Card from "./card";
 export default function Content({ option }) {
-  const { data, likes,fetchAndSetImages,vidios,fetchAndSetVidios } = useContext(MediaContext);
+  const { data, likes,fetchAndSetImages,vidios,fetchAndSetVidios,followings} = useContext(MediaContext);
   const homeContent = useMemo(() => (
     Array.isArray(data) ? data.map((img, index) => <Card key={index} data={{...img,flag:false}}  />) : null
   )
@@ -18,6 +18,7 @@ export default function Content({ option }) {
   const handleButtonClick = () => {
     if(option==='home'){
       fetchAndSetImages();
+      console.log(followings);
     }
     else{
       fetchAndSetVidios();

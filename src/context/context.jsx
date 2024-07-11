@@ -5,6 +5,7 @@ export const MediaContext = createContext();
 export const MediaProvider = ({ children }) => {
   const [vidios,setvidios]=useState([]);
   const [option, setOption] = useState("home");
+  const[followings,setFollowings]=useState([]);
   const [data, setData] = useState([]);
   const[likes,setLikes]=useState([]);
   const[ohis,setohis]=useState([]);
@@ -42,7 +43,7 @@ export const MediaProvider = ({ children }) => {
   },[]);
 
   return (
-    <MediaContext.Provider value={{ option, setOption, data, fetchAndSetImages,likes,setLikes,setQuery,query,vidios,fetchAndSetVidios,ohis,setohis}}>
+    <MediaContext.Provider value={{ option, setOption, data, fetchAndSetImages,likes,setLikes,setQuery,query,vidios,fetchAndSetVidios,ohis,setohis,followings,setFollowings}}>
       {children}
     </MediaContext.Provider>
   );

@@ -49,7 +49,7 @@ export default function Header({ hideNavigation,mobile }) {
        </div>
        {(mobile) && (
            <div ref={menuRef} className={show ? "show1" : "hide1"}>
-               <Menu />
+               <Menu setShow={setShow}/>
            </div>
        )}
        <h2 className="logo">logo</h2>
