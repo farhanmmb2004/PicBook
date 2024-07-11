@@ -10,7 +10,7 @@ try{
         return response.data;
     }
     else{
-        let response=await axios.get(`${base_URL}&q=${query}&per_page=10`);
+        let response=await axios.get(`${base_URL}&q=${query}&page=${random}&per_page=10`);
         return response.data;
     }
 }
@@ -23,11 +23,10 @@ export let fetchVidios=async(query='')=>{
         let random=Math.floor(Math.random()*20);
         if(query===''){
             let response=await axios.get(`${vidio_url}&page=${random}&per_page=5`);
-            console.log(response.data);
             return response.data;
         }
         else{
-            let response=await axios.get(`${vidio_url}&q=${query}`);
+            let response=await axios.get(`${vidio_url}&q=${query}&page=${random}&per_page=5`);
             return response.data;
         }
     }

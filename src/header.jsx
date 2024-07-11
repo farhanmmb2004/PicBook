@@ -3,12 +3,14 @@ import React, { useContext, useState, useRef, useEffect } from 'react';
 import Menu from "./menu";
 import { MediaContext } from "./context/context";
 import Navigation from "./navigationBar";
+import { useNavigate } from 'react-router-dom';
 
 export default function Header({ hideNavigation,mobile }) {
     let [query1, setQuery1] = useState('');
     let [show, setShow] = useState(false);
-    let {setQuery,option } = useContext(MediaContext);
+    let {setQuery,option,setOption } = useContext(MediaContext);
     const menuRef = useRef(null);
+    const navigate = useNavigate();
 
     let handleMenu = () => {
         setShow((prevShow) => !prevShow);
@@ -21,6 +23,7 @@ export default function Header({ hideNavigation,mobile }) {
     let handleSubmit = (e) => {
         e.preventDefault();
         setQuery(query1);
+        navigate('/search');
     }
 
     useEffect(() => {
@@ -54,7 +57,7 @@ export default function Header({ hideNavigation,mobile }) {
            <form onSubmit={handleSubmit}>
                <input
                    type="text"
-                   placeholder="don't search 'Nudes'"
+                   placeholder={option==='home'?"search for images":"search for vidios"}
                    onChange={handleChange}
                />
            </form>
@@ -67,8 +70,8 @@ export default function Header({ hideNavigation,mobile }) {
 </header></>
    }
     return (<>
-       {(option==='home'||option==='videocam')&&helper()}
-<Navigation c={`navigation ${hideNavigation ? 'hidden-navigation' : ''}`}/>
+       {(option==='home'||option==='videocam'||option==='search')&&helper()}
+{option!=='search'&&<Navigation c={`navigation ${hideNavigation ? 'hidden-navigation' : ''}`}/>}
 </>
     );
 }

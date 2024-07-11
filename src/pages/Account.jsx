@@ -1,9 +1,11 @@
-import React, { useContext } from 'react';
+import React, { useContext,useEffect } from 'react';
 import Content from '../content';
 import { MediaContext } from "../context/context";
 const Account = () =>{
     const {setOption}=useContext(MediaContext);
-    setOption("account_circle");
+    useEffect(() => {
+        setOption("account_circle");
+    }, [setOption]);
     return <Content option="account_circle" />
 } 
 

@@ -6,7 +6,7 @@ import Home from './pages/Home';
 import Videocam from './pages/Videocam';
 import Favorite from './pages/Favorite';
 import Account from './pages/Account';
-// import Settings from './pages/settings';
+import Search from './pages/Search';
 import { MediaContext } from "./context/context";
 
 function App() {
@@ -41,13 +41,6 @@ function App() {
       window.removeEventListener('scroll', handleScroll);
     };
   }, [lastScrollY]);
-  // if(option==='setting'){
-  //   return (
-  //     <Routes>
-  //       <Route path="/settings" element={<Settings />} />
-  //     </Routes>
-  //   );
-  //   }
 
   return (
       <Router>
@@ -63,6 +56,8 @@ function App() {
               <Route path="/videocam" element={<Videocam />} />
               <Route path="/favorite" element={<Favorite />} />
               <Route path="/account" element={<Account />} />
+              <Route path="/search" element={<Search/>} />
+              
             </Routes>
           </div>
         </main>
