@@ -1,13 +1,16 @@
-import React, { useContext, useMemo } from "react";
+import React, { useContext, useMemo, useState } from "react";
 import { MediaContext } from "./context/context";
 import './style.css';
 import Card from "./card";
+import MyLoader from "./MyLoader";
 export default function Content({ option }) {
   const { data, likes,fetchAndSetImages,vidios,fetchAndSetVidios,followings} = useContext(MediaContext);
+  const[loading,setLoading]=useState(false);
   const homeContent = useMemo(() => (
     Array.isArray(data) ? data.map((img, index) => <Card key={index} data={{...img,flag:false}}  />) : null
   )
   , [data]);
+  const loader=<MyLoader/>
   const vidioContent = useMemo(() => (
     Array.isArray(vidios) ? vidios.map((img, index) => <Card key={index} data={{...img,flag:false}}  />) : null
   )
@@ -16,6 +19,7 @@ export default function Content({ option }) {
     likes.map((img, index) => <Card key={index} data={{...img}} flag={true} />)
   ), [data]);
   const handleButtonClick = () => {
+    setLoading(true);
     if(option==='home'){
       fetchAndSetImages();
       console.log(followings);
@@ -23,15 +27,16 @@ export default function Content({ option }) {
     else{
       fetchAndSetVidios();
     }
+    setLoading(false);
   };
 
   return (
     <div className="content">
-      {option === 'home' && <>{homeContent}
+      {option === 'home' && <>{loading?loader:homeContent}
       <div className="helperb"><button onClick={handleButtonClick} className="content-button">load more</button></div>
       </> }
       {option === 'favorite' && favoriteContent}
-      {option==='videocam'&&<>{vidioContent}
+      {option==='videocam'&&<>{loading?loader:vidioContent}
       <div className="helperb"><button onClick={handleButtonClick} className="content-button">load more</button></div>
       </>}
       {(option === 'account_circle') && (
