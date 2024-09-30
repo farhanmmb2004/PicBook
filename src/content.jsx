@@ -29,12 +29,15 @@ export default function Content({ option }) {
 
   return (
     <div className="content">
-      {option === 'home' && <>{loading?loader:homeContent}
+      {option === 'home' && <>{homeContent}
+      {loading&&loader}
       <div className="helperb"><button onClick={handleButtonClick} className="content-button">load more</button></div>
       </> }
       {option === 'favorite' && favoriteContent}
-      {option==='videocam'&&<>{loading?loader:vidioContent}
+      {option==='videocam'&&<>{vidioContent}
+      {loading&&loader}
       <div className="helperb"><button onClick={handleButtonClick} className="content-button">load more</button></div>
+      
       </>}
       {(option === 'account_circle') && (
         <h1>
