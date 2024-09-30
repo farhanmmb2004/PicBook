@@ -21,7 +21,7 @@ function MyLoader (props){
   <br />
   <ContentLoader 
     speed={1}
-    width={400}
+    width={300}
     height={400}
     viewBox="0 0 400 400"
     backgroundColor="#f3f3f3"
@@ -36,7 +36,7 @@ function MyLoader (props){
   <br />
   <ContentLoader 
     speed={1}
-    width={400}
+    width={300}
     height={400}
     viewBox="0 0 400 400"
     backgroundColor="#f3f3f3"

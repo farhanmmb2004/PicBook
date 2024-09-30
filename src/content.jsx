@@ -4,8 +4,7 @@ import './style.css';
 import Card from "./card";
 import MyLoader from "./MyLoader";
 export default function Content({ option }) {
-  const { data, likes,fetchAndSetImages,vidios,fetchAndSetVidios,followings} = useContext(MediaContext);
-  const[loading,setLoading]=useState(false);
+  const { loading,data, likes,fetchAndSetImages,vidios,fetchAndSetVidios,followings} = useContext(MediaContext);
   const homeContent = useMemo(() => (
     Array.isArray(data) ? data.map((img, index) => <Card key={index} data={{...img,flag:false}}  />) : null
   )
@@ -19,7 +18,6 @@ export default function Content({ option }) {
     likes.map((img, index) => <Card key={index} data={{...img}} flag={true} />)
   ), [data]);
   const handleButtonClick = () => {
-    setLoading(true);
     if(option==='home'){
       fetchAndSetImages();
       console.log(followings);
@@ -27,7 +25,6 @@ export default function Content({ option }) {
     else{
       fetchAndSetVidios();
     }
-    setLoading(false);
   };
 
   return (
