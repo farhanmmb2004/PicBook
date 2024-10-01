@@ -3,7 +3,9 @@ import { MediaContext } from "./context/context";
 import './style.css';
 import Card from "./card";
 import MyLoader from "./MyLoader";
-export default function Content({ option }) {
+import {  trackWindowScroll }
+  from 'react-lazy-load-image-component';
+function Content({ option }) {
   const { loading,data, likes,fetchAndSetImages,vidios,fetchAndSetVidios,followings} = useContext(MediaContext);
   const homeContent = useMemo(() => (
     Array.isArray(data) ? data.map((img, index) => <Card key={index} data={{...img,flag:false}}  />) : null
@@ -48,3 +50,4 @@ export default function Content({ option }) {
     </div>
   );
 }
+export default trackWindowScroll(Content);

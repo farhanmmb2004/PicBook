@@ -1,7 +1,8 @@
 import axios from 'axios';
-let api_KEY="44401170-af74c4d624fed378eb4dca7a6";
-let base_URL=`https://pixabay.com/api/?key=${api_KEY}`;
-let vidio_url=`https://pixabay.com/api/videos/?key=44401170-af74c4d624fed378eb4dca7a6`;
+let URL='https://pixabay.com/api/';
+let KEY='44401170-af74c4d624fed378eb4dca7a6';
+let base_URL=`${URL}?key=${KEY}`;
+let vidio_url=`${URL}?key=${KEY}`;
 export let fetchImages=async(query='')=>{
 try{
     let random=Math.floor(Math.random()*20);
